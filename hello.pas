@@ -1,25 +1,35 @@
 program hello;
 var
-	x: integer = 500;
-	y: integer;
-	row_x, row_y, row_z : integer;
-	flag: boolean;
+	x: integer = 4000;
+	i: integer = 5;
+	n: integer;
 begin
-	y := 100;
-	row_x := 10;
-	row_y := 20;
-	row_z := 30;
+	if x > 100 then begin
+		writeln('x is more then 100');
+	end;
 
+	writeln('x = ', x);
 
-	writeln('Hello, world!');
-	writeln('first');
-	write('second');
-	write('third');
-	writeln('175*113 = ',175*113);
-	writeln('14/7 = ', 14/7:7:2);
-	writeln('27 div 4 = ', 27 div 4, ' and 27 mod 4 = ', 27 mod 4);
+	writeln('cycle is starting');
+	while i > 0 do
+	begin
+		writeln('i: ', i);
+		i := i - 1;
+	end;
 
-	write('Введите число: ');
-	read(x);
-	writeln(x*x);
+	writeln('pre-cycle is starting');
+	writeln('input numbers before there sum exceed 100');
+	repeat
+		readln(x);
+		i := i + x;
+	until i > 100;
+	writeln('current sum is:', i);
+
+	{there is a comment}
+	{for-cycle}
+	for n := 1 to 5 do
+	begin
+		writeln(n);
+	end;
 end.
+

@@ -1,35 +1,55 @@
 program hello;
 var
-	x: integer = 4000;
-	i: integer = 5;
-	n: integer;
+	h, i, j, n: integer;
 begin
-	if x > 100 then begin
-		writeln('x is more then 100');
-	end;
-
-	writeln('x = ', x);
-
-	writeln('cycle is starting');
-	while i > 0 do
-	begin
-		writeln('i: ', i);
-		i := i - 1;
-	end;
-
-	writeln('pre-cycle is starting');
-	writeln('input numbers before there sum exceed 100');
 	repeat
-		readln(x);
-		i := i + x;
-	until i > 100;
-	writeln('current sum is:', i);
+		writeln('enter the height of the diamond (odd, h >= 3)');
+		readln(h);
+	until (h >= 3) and (h mod 2 = 1);  
 
-	{there is a comment}
-	{for-cycle}
-	for n := 1 to 5 do
+	n := h div 2; {there is the half of the height}	
+
+	{printing upside of the diamond}
+	for i := 1 to n do
 	begin
-		writeln(n);
+		for j := i to (n + 1) do
+			begin
+				write(' ');
+			end;
+
+			write('*');
+
+		if (i > 1) then
+		begin
+			for j := (i * 2 - 4) downto 0 do
+				begin
+					write(' ');
+				end;
+				write('*');
+		end;
+
+		writeln();
+	end;	
+
+	{printing downside of the diamond}
+	for i := 1 to (h - n) do
+	begin
+		for j := (i - 1) downto 0 do
+			begin
+				write(' ');
+			end;
+			write('*');
+		
+		if (i <> h - n) then
+		begin
+			for j := ((n * 2 - 2) - ((i - 1) * 2)) downto 0 do
+			begin
+				write(' ');
+			end;	
+			writeln('*');
+		end;
 	end;
+
+	writeln();
 end.
 
